@@ -1,0 +1,9 @@
+{
+   "version": 0,
+   "tools": {
+      "flasher": {
+         "label": "ISO Flasher",
+         "path": "flasher.html"
+      }
+   }
+}
