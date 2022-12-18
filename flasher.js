@@ -69,7 +69,7 @@ function flasher_run() {
    }
 }
 
-function flasher_complete {
+function flasher_complete() {
    window.alert("Flash Complete!");
    status.style.color = "green";
    status.innerHTML = "Flash completed!";
