@@ -58,15 +58,21 @@ function flasher_run() {
    flasher_output("\n");
 
    if (confirm(`Writing data to the selected drive will permanently destroy the data\nISO: ${isoDropdown.value}\nMedia: /dev/${mediaDropdown.value}\nProceed?`)) {
-      cockpit.spawn(['sudo', 'dd', 'if=', isoPath, 'of=', mediaPath, 'status=progress'])
+      cockpit.spawn(['sudo', 'dd', `if=${isoPath}`, `of=${mediaPath}`, 'status=progress'])
          .stream(flasher_output)
-         .then(flasher_status_idle)
-         .catch(e => {status.style.color = "red"; status.innerHTML = "Error: no root privileges"});
+         .then(flasher_complete)
+         .catch(e => {status.style.color = "red"; status.innerHTML = "Error: no root privileges"; flasher_output(e)});
    } else {
       status.style.color = "red";
       status.innerHTML = "Process canceled by user";
       return;
    }
+}
+
+function flasher_complete {
+   window.alert("Flash Complete!");
+   status.style.color = "green";
+   status.innerHTML = "Flash completed!";
 }
 
 function get_mounted() {
