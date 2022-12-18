@@ -11,7 +11,7 @@ const output = document.getElementById("output");
 var isMounted = 1;
 
 function flasher_status_load() {
-   status.style.color = "yellow";
+   status.style.color = "blue";
    status.innerHTML = "loading...";
 }
 
