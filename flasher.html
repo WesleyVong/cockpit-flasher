@@ -19,15 +19,22 @@
             </select>
          </div>
          <div>
-            <label for="mediaDropdown">Select bootable media from dropdown</label>
+            <label for="mediaDropdown">Select media from dropdown</label>
             <select name="Media List" id="mediaDropdown">
             </select>
+            <button id="mediaRefresh">Refresh Media</button>
+         </div>
+         <div>
+            <span id="mounted"></span>
          </div>
          <div>
             <button id="flash">Flash!</button>
+         </div>
+         <div>
             <span id="status"></span>
          </div>
          <div>
+            <label for="output">Console:</label>
             <pre id="output"></pre>
          </div>
       </section>
